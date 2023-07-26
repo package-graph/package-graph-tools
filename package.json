@@ -1,0 +1,22 @@
+{
+  "name": "package-graph-tool",
+  "version": "1.0.0",
+  "description": "package-graph-tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/package-graph/package-graph-tools.git"
+  },
+  "keywords": [
+    "package-graph"
+  ],
+  "author": "package-graph.org",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/package-graph/package-graph-tools/issues"
+  },
+  "homepage": "https://github.com/package-graph/package-graph-tools#readme"
+}
