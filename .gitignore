@@ -4,3 +4,5 @@
 .1024feature*
 .nfs*
 node_modules
+.DS_Store
+web-ui
