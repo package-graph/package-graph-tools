@@ -34,8 +34,7 @@
   },
   "lint-staged": {
     "packages/**/*.{ts,tsx}": [
-      "pnpm run lint:eslint",
-      "pnpm run lint:prettier"
+      "pnpm run lint:eslint"
     ]
   },
   "config": {
