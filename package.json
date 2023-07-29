@@ -18,8 +18,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src",
-    "release": "standard-version",
+    "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./packages",
     "pre-check": "tsc && npx lint-staged"
 
   },
@@ -32,13 +31,12 @@
     "commitizen": "^4.3.0",
     "cz-git": "^1.7.0",
     "husky": "^8.0.3",
-    "prettier": "^3.0.0",
-    "standard-version": "^9.5.0"
+    "prettier": "^3.0.0"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "pnpm run lint:eslint"
-      // "pnpm run lint:prettier" 
+    "packages/**/*.{ts,tsx}": [
+      "pnpm run lint:eslint",
+      "pnpm run lint:prettier"
     ]
   },
   "config": {
