@@ -19,7 +19,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./packages",
-    "pre-check": "tsc && npx lint-staged"
+    "pre-check": "tsc && npx lint-staged",
+    "release": "standard-version",
+    "release:alpha": "standard-version --prerelease alpha",
+    "release:rc": "standard-version --prerelease rc",
+    "release:major": "pnpm run release -- --release-as major",
+    "release:minor": "pnpm run release -- --release-as minor",
+    "release:patch": "pnpm run release -- --release-as patch"
   },
   "dependencies": {
     "@antfu/eslint-config": "^0.39.8"
@@ -30,7 +36,8 @@
     "commitizen": "^4.3.0",
     "cz-git": "^1.7.0",
     "husky": "^8.0.3",
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.0",
+    "standard-version": "^9.5.0"
   },
   "lint-staged": {
     "packages/**/*.{ts,tsx}": [
