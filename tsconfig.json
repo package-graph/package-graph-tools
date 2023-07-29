@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "target": "ESNext",
+    "module": "commonjs",
+    "sourceMap": false,
+    "esModuleInterop": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "allowJs": false,
+    "noEmit": true // 不生成输出文件
+  },
+  "include": [
+    "packages/**/*.ts",
+    "scripts/*.ts",
+    "scripts/*.ts",
+    "web-ui/vite.config.ts",
+    "scripts/build-charts.ts",
+    "scripts/build-cli.ts",
+    "bin/*.ts",
+    "lib/*.ts",
+    "lib/src/*.ts"
+  ]
+}
