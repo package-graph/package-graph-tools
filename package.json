@@ -18,21 +18,32 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src",
     "release": "standard-version",
     "pre-check": "tsc && npx lint-staged"
+
   },
   "dependencies": {
     "@antfu/eslint-config": "^0.39.8"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.7.0",
     "husky": "^8.0.3",
     "prettier": "^3.0.0",
     "standard-version": "^9.5.0"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "pnpm run lint:eslint",
-      "pnpm run lint:prettier"
+      "pnpm run lint:eslint"
+      // "pnpm run lint:prettier" 
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   }
 }
