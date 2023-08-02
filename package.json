@@ -17,6 +17,10 @@
   ],
   "main": "index.js",
   "scripts": {
+    "lint": "eslint 'src/**/*.{js,ts}' --fix",
+    "dev": "rollup -w -c",
+    "build": "rollup -c",
+    "dev:cli": "ts-node --esm bin/index.ts analyze",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./packages",
     "pre-check": "tsc && npx lint-staged",
@@ -27,17 +31,36 @@
     "release:minor": "pnpm run release -- --release-as minor",
     "release:patch": "pnpm run release -- --release-as patch"
   },
+  "bin": {
+    "graph-cli": "bin/index.js"
+  },
   "dependencies": {
-    "@antfu/eslint-config": "^0.39.8"
+    "@antfu/eslint-config": "^0.39.8",
+    "@rollup/plugin-commonjs": "^25.0.3",
+    "commander": "^11.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
     "commitizen": "^4.3.0",
     "cz-git": "^1.7.0",
+    "esbuild": "^0.18.17",
+    "esbuild-register": "^3.4.2",
+    "eslint": "^8.46.0",
     "husky": "^8.0.3",
+    "json-loader": "^0.5.7",
     "prettier": "^3.0.0",
-    "standard-version": "^9.5.0"
+    "rollup": "^3.27.0",
+    "rollup-plugin-cleandir": "^2.0.0",
+    "standard-version": "^9.5.0",
+    "vitest": "^0.33.0"
   },
   "lint-staged": {
     "packages/**/*.{ts,tsx}": [

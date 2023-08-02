@@ -3,15 +3,18 @@
     "baseUrl": ".",
     "rootDir": ".",
     "target": "ESNext",
-    "module": "commonjs",
+    "module": "CommonJS",
     "sourceMap": false,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "lib",
     "declaration": true,
+    "declarationDir": "lib",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
     "allowJs": false,
-    "noEmit": true // 不生成输出文件
+    "noEmit": false // 不生成输出文件
   },
   "include": [
     "packages/**/*.ts",
@@ -21,6 +24,7 @@
     "scripts/build-charts.ts",
     "scripts/build-cli.ts",
     "bin/*.ts",
+    "src/*.ts",
     "lib/*.ts",
     "lib/src/*.ts"
   ]
