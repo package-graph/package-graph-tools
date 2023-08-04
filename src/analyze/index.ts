@@ -1,19 +1,7 @@
-import chalk from 'chalk'
-import fs from 'fs'
-const analyze = (dept: number = 2 ) => {
-  const packageJSONPath = `${process.cwd()}/package.json`
-  const packageNode = []
-  const packageLink = []
-  const packageMapNode = new Map()
-  let dep = 0
-  try {
-    const json = fs.readFileSync(packageJSONPath)
-    const { devDependencies, dependencies } = JSON.parse(json.toString())
-    console.log(devDependencies)
-    console.log(dependencies)
-  } catch (e) {
-    console.log(e)
-  }
+import buildGraph from "../graph";
+const analyze = ( path:string = '', dept: number = 2, devFlag:boolean = false, ) => {
+  let result = buildGraph(process.cwd(), dept, devFlag)
+  console.log(result.NodeList.length, result.EdgeList.length)
 }
 
 export default analyze

@@ -21,7 +21,7 @@
     "dev": "rollup -w -c",
     "build": "rollup -c",
     "dev:cli": "ts-node --esm bin/index.ts analyze",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ts-node --esm bin/index.ts analyze",
     "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./packages",
     "pre-check": "tsc && npx lint-staged",
     "release": "standard-version",

@@ -1,5 +1,5 @@
 /**
- * @file interface.ts
+ * @file GraphInterface.ts
  * @description 定义接口
  * @date 2023/08/03
  * @author juanxincai
@@ -17,27 +17,12 @@
  * @property {TreeDataType[]} children - 子节点
  */
 interface TreeDataType {
-  treeId: string;
-  name: string;
-  version: string;
-  children: TreeDataType[];
+  treeId?: string;
+  name?: string;
+  version?: string;
+  children?: TreeDataType[];
 }
-
-interface GraphNodeType {
-  nodeId: string;
-  name: string;
-  version: string;
-}
-
-interface GraphEdgeType {
-  edgeId: string;
-  source: string;
-  target: string;
-}
-
 
 export {
   TreeDataType,
-  GraphNodeType,
-  GraphEdgeType,
-};
+}
