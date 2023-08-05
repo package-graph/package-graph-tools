@@ -17,10 +17,10 @@
  * @property {TreeDataType[]} children - 子节点
  */
 interface TreeDataType {
-  treeId?: string;
-  name?: string;
-  version?: string;
-  children?: TreeDataType[];
+  treeId?: string
+  name?: string
+  version?: string
+  children?: TreeDataType[]
 }
 
 export {
