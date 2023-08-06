@@ -81,6 +81,9 @@ importers:
       standard-version:
         specifier: ^9.5.0
         version: 9.5.0
+      ts-node:
+        specifier: ^10.9.1
+        version: 10.9.1(@types/node@20.4.5)(typescript@5.1.6)
       vitest:
         specifier: ^0.33.0
         version: 0.33.0

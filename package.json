@@ -61,6 +61,7 @@
     "rollup": "^3.27.0",
     "rollup-plugin-cleandir": "^2.0.0",
     "standard-version": "^9.5.0",
+    "ts-node": "^10.9.1",
     "vitest": "^0.33.0"
   },
   "lint-staged": {
