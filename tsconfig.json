@@ -2,11 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
-    "target": "ESNext",
-    "module": "CommonJS",
+    "target": "ES2020",
+    "module": "ESNext",
     "sourceMap": false,
     "esModuleInterop": true,
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "noUnusedLocals": false,
+    "isolatedModules": true,
     "outDir": "lib",
     "declaration": true,
     "declarationDir": "lib",
@@ -14,7 +17,18 @@
     "strict": true,
     "skipLibCheck": true,
     "allowJs": false,
-    "noEmit": false // 不生成输出文件
+    "noEmit": false, // 不生成输出文件
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "types": [
+      "node"
+    ],
+    "removeComments": false
+  },
+  "ts-node": {
+    "esm": true
   },
   "include": [
     "packages/**/*.ts",

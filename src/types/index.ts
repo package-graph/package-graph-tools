@@ -1,7 +1,7 @@
-import { GraphNodeType, GraphEdgeType } from "./GraphInterface";
-import { TreeDataType } from "./TreeInterface";
+import type { GraphEdgeType, GraphNodeType } from './GraphInterface'
+import type { TreeDataType } from './TreeInterface'
 
-export {
+export type {
   TreeDataType,
   GraphNodeType,
   GraphEdgeType,
