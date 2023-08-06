@@ -10,9 +10,6 @@
     "resolveJsonModule": true,
     "noUnusedLocals": false,
     "isolatedModules": true,
-    "outDir": "lib",
-    "declaration": true,
-    "declarationDir": "lib",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
@@ -38,8 +35,8 @@
     "scripts/build-charts.ts",
     "scripts/build-cli.ts",
     "bin/*.ts",
-    "src/*.ts",
-    "lib/*.ts",
-    "lib/src/*.ts"
+    "src/*.ts"
+    // "lib/*.ts",
+    // "lib/src/*.ts"
   ]
 }

@@ -23,7 +23,7 @@
   "scripts": {
     "lint": "eslint 'src/**/*.{js,ts}' --fix",
     "dev": "rollup -w -c",
-    "build": "rollup -c",
+    "build": "rollup -c rollup.config.js",
     "dev:cli": "ts-node  --experimental-specifier-resolution=node bin/index.ts analyze",
     "test": "ts-node --esm bin/index.ts analyze",
     "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./packages",
