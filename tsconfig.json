@@ -14,7 +14,7 @@
     "strict": true,
     "skipLibCheck": true,
     "allowJs": false,
-    "noEmit": false, // 不生成输出文件
+    "noEmit": true, // 不生成输出文件
     "lib": [
       "esnext",
       "dom"
@@ -28,15 +28,7 @@
     "esm": true
   },
   "include": [
-    "packages/**/*.ts",
-    "scripts/*.ts",
-    "scripts/*.ts",
-    "web-ui/vite.config.ts",
-    "scripts/build-charts.ts",
-    "scripts/build-cli.ts",
     "bin/*.ts",
     "src/*.ts"
-    // "lib/*.ts",
-    // "lib/src/*.ts"
   ]
 }
