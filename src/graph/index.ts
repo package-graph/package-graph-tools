@@ -1,7 +1,6 @@
-// @ts-expect-error
 import fs from 'node:fs'
 import * as process from 'node:process'
-import type {GraphEdgeType, GraphNodeType} from '../types'
+import type { GraphEdgeType, GraphNodeType } from '../types'
 
 function buildGraph(path: string, dept: number, devFlag: boolean) {
   const NodeList: GraphNodeType[] = []
@@ -32,11 +31,11 @@ function buildGraph(path: string, dept: number, devFlag: boolean) {
       version: root.version,
     })
     const dependencies = devFlag
-        ? {
+      ? {
           ...root.dependencies,
           ...root.devDependencies,
         }
-        : root.dependencies
+      : root.dependencies
     if (dependencies == null)
       return
     Object.keys(dependencies).forEach((key) => {
