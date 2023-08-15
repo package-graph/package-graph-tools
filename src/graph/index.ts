@@ -20,16 +20,23 @@ function buildGraph(path: string, dept: number, devFlag: boolean) {
     catch (e) {
       console.log(e)
     }
-    const root = JSON.parse(json)
-    if (NodeMap.get(root.name)) {
-      // TODO 多版本问题&&环形依赖
-      return
+    let root = JSON.parse(json);
+    if(NodeMap.get(root.name)) {
+      if (NodeMap.get(root.name) !== root.version) {
+        // TODO 多版本问题
+      } else {
+        // TODO 环形依赖
+
+      }
+
+      return;
     }
     NodeMap.set(root.name, root.version)
     NodeList.push({
+      depth: 0,
       name: root.name,
       nodeId: root.name,
-      version: root.version,
+      version: root.version
     })
     const dependencies = devFlag
       ? {
@@ -46,11 +53,13 @@ function buildGraph(path: string, dept: number, devFlag: boolean) {
           name: root.name,
           nodeId: root.name,
           version: root.version,
+          depth: depth,
         },
         target: {
           name: key,
           nodeId: key,
           version: dependencies[key],
+          depth: depth + 1,
         },
       })
       graphBuild(`${process.cwd()}/node_modules/${key}`, depth + 1)

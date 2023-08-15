@@ -18,7 +18,7 @@
   ],
   "main": "index.js",
   "bin": {
-    "graph-cli": "bin/index.js"
+    "graph-cli": "bin/index.ts"
   },
   "scripts": {
     "lint": "eslint 'src/**/*.{js,ts}' --fix",

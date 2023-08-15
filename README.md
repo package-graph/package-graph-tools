@@ -15,7 +15,7 @@ ts-node --esm bin/index.ts -v
 ```
 运行
 ```bash
-ts-node --esm bin/index.ts --depth 2 --path ./ --dev true
+ts-node --esm bin/index.ts analyze --depth 2 --path ./ --dev true
 ```
 ### 参数说明
 | 参数        | 说明          | 默认值   |
