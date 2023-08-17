@@ -3,7 +3,11 @@ import fs from 'node:fs'
 import * as process from 'node:process'
 import type { GraphEdgeType, GraphNodeType } from '../types'
 
-function buildGraph(path: string, dept: number, devFlag: boolean) {
+function buildGraph(
+    path: string,
+    dept: number,
+    devFlag: boolean
+) {
   const NodeList: GraphNodeType[] = []
   const EdgeList: GraphEdgeType[] = []
   const NodeMap: Map<string, string> = new Map()
@@ -26,9 +30,7 @@ function buildGraph(path: string, dept: number, devFlag: boolean) {
         // TODO 多版本问题
       } else {
         // TODO 环形依赖
-
       }
-
       return;
     }
     NodeMap.set(root.name, root.version)

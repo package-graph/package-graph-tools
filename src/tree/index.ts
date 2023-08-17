@@ -1,10 +1,9 @@
 import { TreeData } from '../domain'
 
-function buildTree(json: object, dept: number) {
+function buildTree(path: string, dept: number, devFlag: boolean) {
   // TODO 构建树版本
   const tree: TreeData = new TreeData({})
-  // eslint-disable-next-line no-console
-  console.log(tree, json, dept)
+  console.log(tree, path, dept)
   return tree
 }
 

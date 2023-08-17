@@ -10,6 +10,8 @@ program
   .name('graph-cli')
   .version('v1.0.0', '-v, --version', '查看版本号')
   .description('字节青训营第六期大项目✨')
+
+program
   .command('analyze')
   .description('分析依赖')
   .option('-d, --depth [depth]', '设置深度分析依赖')
@@ -17,17 +19,12 @@ program
   .option('-D, --dev [devFlag]', '是否分析devDependencies')
   .option('-p, --path [config]', '配置package.json文件目录')
   // TODO 树形式和图形式渲染 --tree --graph
-  .action(({ depth, dev, json, path }) => {
-    if (json) {
-      // output json
-      console.log(json)
-    }
-    else {
-      console.log(chalk.green('开始分析依赖'))
-      console.log(path, depth, dev)
-      // analyze
-      analyze(path, depth, dev)
-    }
+  .action(async ({ depth, dev, json, path }) => {
+      try {
+          await analyze(path, depth, dev, json)
+      } catch (e) {
+            console.log(chalk.red(e))
+      }
   })
 
 program.parse(process.argv)
