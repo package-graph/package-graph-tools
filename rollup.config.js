@@ -14,17 +14,17 @@ import commonjs from '@rollup/plugin-commonjs'
 import { cleandir } from 'rollup-plugin-cleandir'
 
 export default {
-  input: './src/index.ts',
+  input: './bin/index.ts',
   output: [
     // cjs
     {
       format: 'cjs',
-      dir: 'lib/cjs/package-graph-tool.cjs.js',
+      dir: 'lib/cjs/graph-cli.cjs.js',
     },
     // esm
     {
       format: 'esm',
-      dir: 'lib/esm/package-graph-tool.esm.js',
+      dir: 'lib/esm/graph-cli.esm.js',
     },
   ],
   plugins: [
