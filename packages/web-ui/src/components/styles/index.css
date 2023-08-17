@@ -1,0 +1,27 @@
+div, input {
+    box-sizing: border-box;
+}
+.f-wrap-column {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.version {
+    flex: 1;
+    overflow: hidden;
+}
+
+.pkgSearch {
+    outline-style: none ;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px 8px;
+    font-size: 26px;
+    width: 100%;
+}
+.pkgTitle {
+    text-align: center;
+    padding: 8px;
+    font-weight: 700;
+}
