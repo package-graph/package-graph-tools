@@ -20,9 +20,11 @@ interface TreeDataType {
   treeId?: string;
   name?: string;
   version?: string;
+  // parent?: TreeDataType;
+  // 是否循环依赖 Circular dependencies
   children?: TreeDataType[];
 }
 
-export {
+export type {
   TreeDataType,
 }

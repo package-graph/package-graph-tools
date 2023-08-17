@@ -1,13 +1,13 @@
-import { GraphEdgeType } from "../types";
+import type { GraphEdgeType, GraphNodeType } from '../types'
 
-class GraphEdge implements GraphEdgeType{
-  edgeId: string;
-  source: string;
-  target: string;
-  constructor({edgeId, source, target}: GraphEdgeType) {
-    this.edgeId = edgeId;
-    this.source = source;
-    this.target = target;
+class GraphEdge implements GraphEdgeType {
+  edgeId: string
+  source: GraphNodeType
+  target: GraphNodeType
+  constructor({ edgeId, source, target }: GraphEdgeType) {
+    this.edgeId = edgeId
+    this.source = source
+    this.target = target
   }
 }
 

@@ -9,19 +9,19 @@
  */
 
 interface GraphNodeType {
-  nodeId: string;
-  name: string;
-  version: string;
+  nodeId: string
+  name: string
+  version: string
+  depth: number;
 }
 
 interface GraphEdgeType {
-  edgeId: string;
-  source: GraphNodeType;
-  target: GraphNodeType;
+  edgeId: string
+  source: GraphNodeType
+  target: GraphNodeType
 }
 
-
-export {
+export type {
   GraphNodeType,
   GraphEdgeType,
-};
+}
