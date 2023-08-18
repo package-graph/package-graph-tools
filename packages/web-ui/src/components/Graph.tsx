@@ -1,14 +1,16 @@
-import {useEffect, useState} from "react";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import G6 from '@antv/g6';
 import "./styles/index.css"
 import ReactJson from "react-json-view";
-const Graph=()=>{
-    const [data,setData]=useState({} as any)
+import {Drawer, Tabs} from "@arco-design/web-react";
+const TabPane = Tabs.TabPane;
+const Graph=(props: { visible: boolean;setVisible:Dispatch<SetStateAction<boolean>>; })=>{
+    const {visible,setVisible}=props
+    const [data,setData]=useState({})
     useEffect(()=>{
         fetch('https://gw.alipayobjects.com/os/antvdemo/assets/data/algorithm-category.json')
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
                 setData(data)
                 const container = document.getElementById('container')!;
                 const width = container.scrollWidth;
@@ -33,7 +35,16 @@ const Graph=()=>{
                         ],
                     },
                     defaultNode: {
-                        size: 26,
+                        size: 60,
+                        labelCfg: {
+                            position:'center',
+                            style: {
+                                lineWidth:30,
+                                fontSize: 10,
+                                textAlign: 'center',
+                                fontStyle: 'bold',
+                            }
+                        }
                     },
                     layout: {
                         type: 'dendrogram',
@@ -43,17 +54,14 @@ const Graph=()=>{
                         radial: true,
                     },
                 });
-
                 graph.node(function (node) {
                     return {
                         label: node.id,
                     };
                 });
-
                 graph.data(data);
                 graph.render();
                 graph.fitView();
-
                 if (typeof window !== 'undefined')
                     window.onresize = () => {
                         if (!graph || graph.get('destroyed')) return;
@@ -64,20 +72,35 @@ const Graph=()=>{
     },[])
     return(
         <>
-            <div style={{height:"100vh",display: "flex"}}>
-                <div className="f-wrap-column" >
-                    <input  className="pkgSearch" placeholder="请输入查找的包名" type="text" />
-                    <ReactJson src={data} iconStyle={"circle"}></ReactJson>
-                </div>
+            <div style={{height:"100vh",display: "flex",paddingTop:"60px"}}>
                 <div id={"container"} style={{flex: "1"}}/>
-                <div className="f-wrap-column" style={{width: "250px"}}>
-                    <div className="f-wrap-column version">
-                        <span className="pkgTitle">各个版本</span>
-                    </div>
-                    <div className="f-wrap-column version">
-                        <span className="pkgTitle">循环引用</span>
-                    </div>
-                </div>
+                <Drawer
+                    placement={'left'}
+                    width={400}
+                    title={<span>NPM </span>}
+                    mask={false}
+                    visible={visible}
+                    onCancel={() => {
+                        setVisible(false);
+                    }}
+                    footer={null}
+                >
+                    <Tabs type={'rounded'} style={{overflow:"hidden"}}>
+                        <TabPane key='1' title='依赖图'>
+                            <ReactJson src={data} iconStyle={"circle"}></ReactJson>
+                        </TabPane>
+                        <TabPane key='2' title='循环依赖'>
+                                暂无循环依赖
+                        </TabPane>
+                        <TabPane key='3' title='多版本'>
+                                暂无多版本
+                        </TabPane>
+                        <TabPane key='4' title='多版本信息'>
+                                暂无多版本信息
+                        </TabPane>
+                    </Tabs>
+
+                </Drawer>
             </div>
         </>
     )
