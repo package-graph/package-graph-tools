@@ -1,19 +1,23 @@
+/* eslint-disable no-console */
 import * as process from 'node:process'
 import buildGraph from '../graph'
-import {writeFile, writeFileToWeb} from '../utils'
+import { writeFile, writeFileToWeb } from '../utils'
+
 async function analyze(
-    path: string = '',
-    dept: number = 2,
-    devFlag: boolean = false,
-    json: string
+  path: string = '',
+  dept: number = 2,
+  devFlag: boolean = false,
+  json: string,
 ) {
+  console.log(path)
   const graphResult = buildGraph(process.cwd(), dept, devFlag)
-  if(json) {
+  if (json) {
     // 输出output TODO JSONPath
-    await writeFile(`graph.json`, JSON.stringify(graphResult), json)
-  } else {
+    await writeFile('graph.json', JSON.stringify(graphResult), json)
+  }
+  else {
     // TODO WebUI
-    await writeFileToWeb(`graph.json`, JSON.stringify(graphResult))
+    await writeFileToWeb('graph.json', JSON.stringify(graphResult))
   }
 }
 

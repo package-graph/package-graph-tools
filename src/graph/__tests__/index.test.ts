@@ -1,3 +1,4 @@
+import process from 'node:process'
 
 describe('build graph', () => {
   it('check graph generation', () => {
@@ -11,20 +12,20 @@ describe('build graph', () => {
         },
         {
           depth: 0,
-          name:'react',
-          nodeId:'react',
+          name: 'react',
+          nodeId: 'react',
           version: '15.3.1',
         },
         {
           depth: 1,
-          name:'react-dom',
-          nodeId:'react-dom',
+          name: 'react-dom',
+          nodeId: 'react-dom',
           version: '0.13.0',
         },
         {
           depth: 1,
-          name:'react-test-renderer',
-          nodeId:'react-test-renderer',
+          name: 'react-test-renderer',
+          nodeId: 'react-test-renderer',
           version: '0.13.2',
         },
       ],
@@ -38,8 +39,8 @@ describe('build graph', () => {
             depth: 0,
           },
           target: {
-            name:'react',
-            nodeId:'react',
+            name: 'react',
+            nodeId: 'react',
             version: '15.3.1',
             depth: 1,
           },
@@ -53,8 +54,8 @@ describe('build graph', () => {
             depth: 0,
           },
           target: {
-            name:'react-dom',
-            nodeId:'react-dom',
+            name: 'react-dom',
+            nodeId: 'react-dom',
             version: '0.13.0',
             depth: 1,
           },
@@ -68,8 +69,8 @@ describe('build graph', () => {
             depth: 0,
           },
           target: {
-            name:'react-test-renderer',
-            nodeId:'react-test-renderer',
+            name: 'react-test-renderer',
+            nodeId: 'react-test-renderer',
             version: '0.13.2',
             depth: 1,
           },
@@ -79,12 +80,12 @@ describe('build graph', () => {
   })
 })
 
-describe("build dev graph", () => {
-  test("should build dev graph", () => {
+describe('build dev graph', () => {
+  test('should build dev graph', () => {
     const buildDepGraph = (name: string) => {
       graphBuild(name, 1)
     }
-    const list = Object.keys(NodeMap).map(key => {
+    const list = Object.keys(NodeMap).map((key) => {
       return {
         name: NodeMap[key],
         version: '1.0.0',
@@ -100,7 +101,7 @@ describe("build dev graph", () => {
         version: '0.18.0',
       },
     ])
-    buildDepGraph("@sentry/browser")
+    buildDepGraph('@sentry/browser')
     expect(list).toEqual([
       {
         name: '@sentry/browser',
