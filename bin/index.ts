@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 import * as process from 'node:process'
 import chalk from 'chalk'
 import { Command } from 'commander'
@@ -24,7 +23,8 @@ program
       await analyze(path, depth, dev, json)
     }
     catch (e) {
-      console.log(chalk.red(e))
+      // eslint-disable-next-line no-console
+      console.log('Error:', chalk.red(e))
     }
   })
 
