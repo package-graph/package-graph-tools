@@ -4,9 +4,9 @@ import * as process from 'node:process'
 import type { GraphEdgeType, GraphNodeType } from '../types'
 
 function buildGraph(
-    path: string,
-    dept: number,
-    devFlag: boolean
+  path: string,
+  dept: number,
+  devFlag: boolean,
 ) {
   const NodeList: GraphNodeType[] = []
   const EdgeList: GraphEdgeType[] = []
@@ -24,21 +24,22 @@ function buildGraph(
     catch (e) {
       console.log(e)
     }
-    let root = JSON.parse(json);
-    if(NodeMap.get(root.name)) {
+    const root = JSON.parse(json)
+    if (NodeMap.get(root.name)) {
       if (NodeMap.get(root.name) !== root.version) {
         // TODO 多版本问题
-      } else {
+      }
+      else {
         // TODO 环形依赖
       }
-      return;
+      return
     }
     NodeMap.set(root.name, root.version)
     NodeList.push({
-      depth: depth,
+      depth,
       name: root.name,
       nodeId: root.name,
-      version: root.version
+      version: root.version,
     })
     const dependencies = devFlag
       ? {
@@ -55,7 +56,7 @@ function buildGraph(
           name: root.name,
           nodeId: root.name,
           version: root.version,
-          depth: depth,
+          depth,
         },
         target: {
           name: key,

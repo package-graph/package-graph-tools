@@ -12,7 +12,7 @@ interface GraphNodeType {
   nodeId: string
   name: string
   version: string
-  depth: number;
+  depth: number
 }
 
 interface GraphEdgeType {

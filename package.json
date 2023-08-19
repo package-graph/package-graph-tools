@@ -1,5 +1,5 @@
 {
-  "name": "package-graph-tool",
+  "name": "@package-graph/package-graph-tool",
   "type": "module",
   "version": "0.0.3",
   "description": "package-graph-tool",
@@ -18,7 +18,11 @@
   ],
   "main": "index.js",
   "bin": {
-    "graph-cli": "lib/esm/graph-cli.esm.js"
+    "graph-cli": "lib/esm/graph-cli.esm.js/index.js"
+  },
+  "engines": {
+    "node": ">=14.21.2",
+    "npm": ">=6.14.17"
   },
   "scripts": {
     "lint": "eslint 'src/**/*.{js,ts}' --fix",
@@ -66,17 +70,16 @@
     "vitest": "^0.33.0"
   },
   "lint-staged": {
-    "packages/**/*.{ts,tsx}": [
+    "src/**/*.{ts,tsx}": [
       "pnpm run lint"
     ]
-  },
-  "engines": {
-    "node": ">=14.21.2",
-    "npm": ">=6.14.17"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git"
     }
+  },
+  "directories": {
+    "lib": "lib"
   }
 }
