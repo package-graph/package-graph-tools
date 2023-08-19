@@ -35,7 +35,7 @@ function buildGraph(
     }
     NodeMap.set(root.name, root.version)
     NodeList.push({
-      depth: 0,
+      depth: depth,
       name: root.name,
       nodeId: root.name,
       version: root.version
