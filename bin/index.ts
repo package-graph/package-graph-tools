@@ -21,7 +21,6 @@ program
   // TODO 树形式和图形式渲染 --tree --graph
   .action(async ({ depth, dev, json, path }: any) => {
     console.log(chalk.green(`开始分析依赖：`,depth, dev, json, path));
-    
       try {
           await analyze(path, depth, dev, json)
       } catch (e) {

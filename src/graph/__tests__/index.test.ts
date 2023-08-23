@@ -79,13 +79,13 @@ describe('build graph', () => {
     })
   })
 })
-
-describe('build dev graph', () => {
-  test('should build dev graph', () => {
+describe("build dev graph", () => {
+  test("should build dev graph", () => {
     const buildDepGraph = (name: string) => {
       graphBuild(name, 1)
     }
-    const list = Object.keys(NodeMap).map((key) => {
+    const list = Object.keys(NodeMap).map(key => {
+
       return {
         name: NodeMap[key],
         version: '1.0.0',
@@ -101,7 +101,8 @@ describe('build dev graph', () => {
         version: '0.18.0',
       },
     ])
-    buildDepGraph('@sentry/browser')
+    buildDepGraph("@sentry/browser")
+
     expect(list).toEqual([
       {
         name: '@sentry/browser',
