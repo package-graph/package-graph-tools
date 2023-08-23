@@ -13,9 +13,6 @@ function buildGraph(
   const NodeMap: Map<string, string> = new Map()
   const dep = 0
   const graphBuild = (path: string, depth: number) => {
-    if (depth >= dept)
-      return
-
     const packageJSONPath = `${path}/package.json`
     let json: any
     try {
@@ -41,6 +38,8 @@ function buildGraph(
       nodeId: root.name,
       version: root.version,
     })
+    if (depth + 1 >= dept)
+      return
     const dependencies = devFlag
       ? {
           ...root.dependencies,
