@@ -4,10 +4,12 @@ class GraphNode implements GraphNodeType {
   name: string
   nodeId: string
   version: string
-  constructor({ name, nodeId, version }: GraphNodeType) {
+  depth: number
+  constructor({ name, nodeId, version, depth }: GraphNodeType) {
     this.name = name
     this.nodeId = nodeId
     this.version = version
+    this.depth = depth
   }
 }
 

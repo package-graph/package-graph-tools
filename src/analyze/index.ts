@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import * as process from 'node:process'
 import buildGraph from '../graph'
 import buildTree from '../tree'
@@ -8,19 +9,25 @@ async function analyze(
     devFlag: boolean = false,
     json: string
 ) {
-  const graphResult = buildGraph(process.cwd(), dept, devFlag)
-  // const treeResult = buildTree(process.cwd(), dept, devFlag)
   console.log(`\n======= Analyzing ${path} ======` );
-  // console.log(treeResult);
-  
+  const graphResult = buildGraph(process.cwd(), dept, devFlag)
+  const treeResult = buildTree(process.cwd(), dept, devFlag)
+  console.log(chalk.greenBright(`\n======= Analyzed ======`))
   
   if(json) {
     // 输出output TODO JSONPath
+    console.log(`\n======= Output: ${path} ======`)
     await writeFile(`graph.json`, JSON.stringify(graphResult), json)
+    await writeFile(`tree.json`, JSON.stringify(treeResult), json)
   } else {
     // TODO WebUI
     await writeFileToWeb(`graph.json`, JSON.stringify(graphResult))
+    await writeFileToWeb(`tree.json`, JSON.stringify(treeResult))
   }
+  console.log(`\n======= Done! ======` );
+  
+  
+  
 }
 
 export default analyze

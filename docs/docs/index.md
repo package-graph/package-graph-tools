@@ -1,6 +1,6 @@
 ---
 hero:
-  title: Package Graph Tools
+  title: Graph-CLI
   actions:
     - text: 快速开始
       link: /guide
