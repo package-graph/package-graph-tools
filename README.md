@@ -1,12 +1,40 @@
 # package-graph-tools
 概述
 
+# 开发版本
+## V0.0.1
+### 使用说明
+
+安装依赖
+```bash
+npm install
+```
+查看版本
+```bash
+ts-node --esm bin/index.ts -v
+```
+运行
+```bash
+ts-node --esm bin/index.ts analyze --depth 2 --path ./ --dev true
+```
+### 参数说明
+| 参数        | 说明          | 默认值   |
+|-----------|-------------|-------|
+| --depth   | 递归深度        | 2     |
+| --path    | 项目路径        | ./    |
+| --dev     | 是否开发版本      | false |
+| --version | 查看版本        | 无     |
+| --help    | 查看帮助        | 无     |
+| --json    | 结果存储到JSON文件 | 无     |
+
+# 代码结构
+- lib为打包后的文件夹
+- bin为命令行入口
+- src为源码主入口
+
 # 提交规范：
 > 例：feat: 增加了一个新功能
 冒号后面需要添加空格
-
-
-
 
 ## 发包规则
 先行版本
