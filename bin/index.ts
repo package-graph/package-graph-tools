@@ -24,7 +24,7 @@ program
       try {
           await analyze(path, depth, dev, json)
       } catch (e) {
-            console.log(chalk.red(e))
+          console.log(chalk.red(e))
       }
   })
 
