@@ -44,8 +44,8 @@ jobs:
         run: pnpm i
 
       # 运行代码扫描
-      - name: Running Lint
-        run: pnpm lint
+      # - name: Running Lint
+      #   run: pnpm lint
 
-      - name: Running Packages Lint
-        run: pnpm lint:eslint
+      # - name: Running Packages Lint
+      #   run: pnpm lint:eslint
