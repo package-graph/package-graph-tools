@@ -1,9 +1,11 @@
 import {Button, Input, Link, Switch} from '@arco-design/web-react';
-import {IconGithub, IconMinus, IconMoon, IconPlus, IconShrink, IconSun} from "@arco-design/web-react/icon";
-import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import {IconMinus, IconMoon, IconPlus, IconSun} from "@arco-design/web-react/icon";
+import {useEffect, useState} from "react";
+import {HeaderProps} from "../type.ts";
+
 const InputSearch = Input.Search;
-const Header= (props: { visible: boolean; setVisible:Dispatch<SetStateAction<boolean>>;})=>{
-   const {visible,setVisible}=props
+const Header= (props:HeaderProps)=>{
+   const {visible,setVisible,type,setType}=props
     const [dark,setDark]=useState(true)
     const handleVisible=()=>{
        setVisible(!visible)
@@ -16,14 +18,6 @@ const Header= (props: { visible: boolean; setVisible:Dispatch<SetStateAction<boo
             ? document.body.removeAttribute('arco-theme')
             : document.body.setAttribute('arco-theme', 'dark')
     }, [dark]);
-    // const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-    // darkThemeMq.addListener(e => {
-    //     if (e.matches) {
-    //         document.body.setAttribute('arco-theme', 'dark');
-    //     } else {
-    //         document.body.removeAttribute('arco-theme');
-    //     }
-    // });
     return (
         <div className={"header"}>
             <div className={"left"}>
@@ -35,16 +29,16 @@ const Header= (props: { visible: boolean; setVisible:Dispatch<SetStateAction<boo
                 <InputSearch
                     searchButton='搜索'
                     placeholder='搜索依赖'
-                    style={{ width: 400 }}
+                    style={{ width: 300 }}
                 />
-                <Button icon={<IconShrink />}>
-                    折叠节点
-                </Button>
+                {/*<Button icon={<IconShrink />}>*/}
+                {/*    折叠节点*/}
+                {/*</Button>*/}
                 <Button icon={visible?<IconMinus/>:<IconPlus/>} onClick={handleVisible}>
                     {visible?'关闭':'打开'}信息框
                 </Button>
-                <Button>
-                    切换图表
+                <Button onClick={()=>setType(type==='tree'?'graph':'tree')}>
+                    {`切换至${type==='tree'? '图':'树'}`}
                 </Button>
                 <Switch
                     type='round'
@@ -52,14 +46,16 @@ const Header= (props: { visible: boolean; setVisible:Dispatch<SetStateAction<boo
                     uncheckedIcon={<IconSun />}
                     onChange={handleDark}
                 />
-                <div className="link">
-                    <a href="">中文文档</a>
-                </div>
                 <Link
-                    style={{color:"black"}}
-                    hoverable={false}
+                    href={"https://package-graph.github.io/package-graph-tools"}
+                    className="link"
+                >
+                    中文文档
+                </Link>
+                <Link
                     href='https://github.com/package-graph/package-graph-tools'
-                    icon={<IconGithub />}>
+                    // icon={<IconGithub />}
+                >
                     Github
                 </Link>
             </div>
