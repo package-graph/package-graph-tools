@@ -34,10 +34,10 @@ const Header= (props:HeaderProps)=>{
                 {/*<Button icon={<IconShrink />}>*/}
                 {/*    折叠节点*/}
                 {/*</Button>*/}
-                <Button icon={visible?<IconMinus/>:<IconPlus/>} onClick={handleVisible}>
+                <Button style={{color:"rgb(var(--link-6))"}} icon={visible?<IconMinus/>:<IconPlus/>} onClick={handleVisible}>
                     {visible?'关闭':'打开'}信息框
                 </Button>
-                <Button onClick={()=>setType(type==='tree'?'graph':'tree')}>
+                <Button style={{color:"rgb(var(--link-6))"}} onClick={()=>setType(type==='tree'?'graph':'tree')}>
                     {`切换至${type==='tree'? '图':'树'}`}
                 </Button>
                 <Switch

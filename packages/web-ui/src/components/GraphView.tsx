@@ -19,8 +19,8 @@ const GraphView = (props:GraphViewProps) => {
             treeId: "", 
             version: ""
         })
-    useEffect(() => {
-        type==='graph'&&fetch('graph.json').then(res => res.json()).then(data => {
+    const getGraph=()=>{
+        fetch('graph.json').then(res => res.json()).then(data => {
             console.log(data)
             setData(data)
             const container=document.getElementById('graph')!;
@@ -54,7 +54,7 @@ const GraphView = (props:GraphViewProps) => {
                             stroke: 'transparent',
                         },
                         label: {
-                            fill: '#ffffff',
+                            fill: '#FFF',
                         },
                     },
                     style: {
@@ -89,9 +89,9 @@ const GraphView = (props:GraphViewProps) => {
             graph.fromJSON(modelOrigin)
             graph.centerContent()
         })
-    }, [type])
-    useEffect(() => {
-        type==='tree'&&fetch('tree.json').then(res => res.json()).then(data => {
+    }
+    const getTree=()=>{
+        fetch('tree.json').then(res => res.json()).then(data => {
             setData(data)
             const container = document.getElementById('tree')!;
             const width = container.scrollWidth;
@@ -116,14 +116,16 @@ const GraphView = (props:GraphViewProps) => {
                     ],
                 },
                 defaultNode: {
-                    size: 60,
+                    size: 55,
                     style:{
-                        lineWidth: 2
+                        lineWidth: 2,
+                        fill: '#5F95FF',
                     },
                     labelCfg:{
                         position:'center',
                         style:{
-                            fontSize: 6,
+                            fill:'#FFF',
+                            fontSize: 3,
                             textAlign: 'center',
                         }
                     }
@@ -133,8 +135,8 @@ const GraphView = (props:GraphViewProps) => {
                     preventOverlap: true,
                     preventOverlapPadding:20,
                     direction: 'H',
-                    nodeSep: 75,
-                    rankSep: 150,
+                    nodeSep: 60,
+                    rankSep: 120,
                     // radial: true,
                 },
             });
@@ -154,7 +156,11 @@ const GraphView = (props:GraphViewProps) => {
                     graph.changeSize(container.scrollWidth, container.scrollHeight);
                 };
         })
-    }, [type]);
+    }
+    useEffect(() => {
+        type==='graph'&&getGraph()
+        type==='tree'&&getTree()
+    }, [type])
     return (
         <>
             <div style={{height: "100vh", display: "flex", paddingTop: "60px"}}>
